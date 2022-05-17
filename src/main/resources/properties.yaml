@@ -1,7 +1,11 @@
 environments:
   env_int:
     active: true
-    appUrl: http://openweathermap.org
+    appUrl: "https://samples.openweathermap.org"
+    basePath: "/data/2.5/weather"
+    contentType: ContentType.JSON
   env_test:
     active: false
-    appUrl: http://openweathermap.org
+    appUrl: "https://samples.openweathermap.org"
+    basePath: "/data/2.5/weather"
+    contentType: ContentType.JSON
