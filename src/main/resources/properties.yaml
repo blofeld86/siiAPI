@@ -1,5 +1,7 @@
 environments:
   env_int:
     active: true
+    appUrl: http://openweathermap.org
   env_test:
     active: false
+    appUrl: http://openweathermap.org

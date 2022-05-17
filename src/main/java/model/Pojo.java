@@ -1,2 +1,10 @@
-package model;public class Pojo {
+package model;
+
+import lombok.Data;
+
+@Data
+public class Pojo {
+
+    private Environments environments;
+
 }
