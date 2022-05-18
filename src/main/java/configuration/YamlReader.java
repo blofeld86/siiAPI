@@ -5,6 +5,8 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import lombok.extern.slf4j.Slf4j;
 import model.EnvironmentsStructure;
 import model.Pojo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
@@ -26,7 +28,8 @@ public class YamlReader {
     }
 
     public static void setPropertiesFromYamlEnvironment(){
-        List<EnvironmentsStructure> listOfEnvironments = getProperties().getEnvironments().lifOfEnvironments();
+
+        List<EnvironmentsStructure> listOfEnvironments = getProperties().getEnvironments().listOfEnvironments();
         boolean foundActiveEnvironment = false;
         for (EnvironmentsStructure  environmentsStructure  : listOfEnvironments){
             if (environmentsStructure.isActive()){

@@ -11,7 +11,7 @@ public class Environments {
     private EnvironmentsStructure env_int;
     private EnvironmentsStructure env_test;
 
-    public List<EnvironmentsStructure> lifOfEnvironments(){
+    public List<EnvironmentsStructure> listOfEnvironments(){
         List<EnvironmentsStructure> list = new ArrayList<>();
         list.add(getEnv_int());
         list.add(getEnv_test());

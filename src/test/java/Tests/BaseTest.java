@@ -7,8 +7,11 @@ import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
+import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+
+import static io.restassured.RestAssured.given;
 
 public class BaseTest {
 
@@ -24,7 +27,11 @@ public class BaseTest {
         RestAssured.baseURI = System.getProperty("appUrl");
         RestAssured.basePath = System.getProperty("basePath");
         RestAssured.filters(new RequestLoggingFilter(),new ResponseLoggingFilter());
-        RestAssured.requestSpecification = new RequestSpecBuilder().setContentType(ContentType.JSON).build();
+        RestAssured.requestSpecification =
+                given().
+                        param(System.getProperty("paramQ"),System.getProperty("city")).
+                        param(System.getProperty("appId"), System.getProperty("token"));
+
         RestAssured.responseSpecification = new ResponseSpecBuilder().expectStatusCode(200).build();
     }
 }

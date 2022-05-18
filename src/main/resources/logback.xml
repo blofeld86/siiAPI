@@ -1,6 +1,6 @@
 <configuration scan="true">
-    <property name="DEV_HOME" value="${user.dir}/log/"/>
-    <timestamp key="bySecond" dattePattern ="yyyyMMdd'T'HHmmss"/>
+    <property name="DEV_HOME" value="${user.dir}/log"/>
+    <timestamp key="bySecond" datePattern ="yyyyMMdd'T'HHmmss"/>
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <withJansi>true</withJansi>
         <layout class="ch.qos.logback.classic.PatternLayout">
@@ -11,9 +11,9 @@
     </appender>
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${DEV_HOME}/timeBasedLogFile_${bySecond}.log</file>
-        <append>false</append>
+        <append>true</append>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${DEV_HOME}/timeBasedLogFile_%d{yyyy-MM-dd_HH:mm:ss}.zip</fileNamePattern>
+            <fileNamePattern>${DEV_HOME}/timeBasedLogFile.%d{yyyy-MM-dd_HH:mm:ss}.zip</fileNamePattern>
             <maxHistory>3</maxHistory>
             <totalSizeCap>30KB</totalSizeCap>
         </rollingPolicy>
