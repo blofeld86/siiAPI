@@ -1,13 +1,15 @@
 package Tests;
 
 import data.DataStore;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.is;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class WeatherTest extends BaseTest {
+public class LondonWeatherTest extends BaseTest {
+
+    // ENV_INT
 
     @Test
     void countryTest() {
@@ -17,11 +19,11 @@ public class WeatherTest extends BaseTest {
                             then().
                                    extract().
                                    path("sys.country");
-        Assertions.assertEquals("GB",DataStore.COUNTRY);
+        assertEquals("GB",DataStore.COUNTRY);
     }
 
     @Test
-    void pressureTest(){
+    void answerTest(){
           when().
                   get().
           then().
