@@ -20,8 +20,8 @@ public class LublinWeatherTest extends BaseTest{
                                     get().
                             then().
                                    extract().
-                                   path("clouds.all");
-        assertEquals(6,DataStore.CLOUDS);
+                                   path(System.getProperty("cloudsPath"));
+        assertEquals(7,DataStore.CLOUDS);
     }
 
     @Test
@@ -30,11 +30,11 @@ public class LublinWeatherTest extends BaseTest{
         when().
                 get().
         then().
-                body("name",is("Lublin Voivodeship")).
-                body("timezone",is(7200)).
-                body("main.temp_max",is(289.92F)).
-                body("wind.gust",is(6.23F)).
-                body("sys.country",is("PL"));
+                body(System.getProperty("namePath"),is("Lublin Voivodeship")).
+                body(System.getProperty("timezonePath"),is(7200)).
+                body(System.getProperty("tempMaxPath"),is(289.92F)).
+                body(System.getProperty("gustPath"),is(5.7F)).
+                body(System.getProperty("countryPath"),is("PL"));
     }
 
 

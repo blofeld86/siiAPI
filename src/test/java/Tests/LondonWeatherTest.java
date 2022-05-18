@@ -18,7 +18,7 @@ public class LondonWeatherTest extends BaseTest {
                                    get().
                             then().
                                    extract().
-                                   path("sys.country");
+                                   path(System.getProperty("countryPath"));
         assertEquals("GB",DataStore.COUNTRY);
     }
 
@@ -27,10 +27,10 @@ public class LondonWeatherTest extends BaseTest {
           when().
                   get().
           then().
-                  body("main.pressure",is(1012)).
-                  body("sys.sunset",is(1485794875)).
-                  body("wind.speed",is(4.1F)).
-                  body("weather[0].main",is("Drizzle")).
-                  body("clouds.all",is(90));
+                  body(System.getProperty("pressurePath"),is(1012)).
+                  body(System.getProperty("sunsetPath"),is(1485794875)).
+                  body(System.getProperty("windSpeedPath"),is(4.1F)).
+                  body(System.getProperty("weatherPath"),is("Drizzle")).
+                  body(System.getProperty("cloudsPath"),is(90));
     }
 }
