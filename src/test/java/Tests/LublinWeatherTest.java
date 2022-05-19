@@ -15,13 +15,13 @@ public class LublinWeatherTest extends BaseTest{
     @Test
     void countryNameTest() {
 
-        DataStore.CLOUDS =
+        DataStore.COUNTRY =
                             when().
                                     get().
                             then().
                                    extract().
-                                   path(System.getProperty("cloudsPath"));
-        assertEquals(7,DataStore.CLOUDS);
+                                   path(System.getProperty("countryPath"));
+        assertEquals(System.getProperty("countryAnswer"),DataStore.COUNTRY);
     }
 
     @Test
@@ -30,11 +30,11 @@ public class LublinWeatherTest extends BaseTest{
         when().
                 get().
         then().
-                body(System.getProperty("namePath"),is("Lublin Voivodeship")).
-                body(System.getProperty("timezonePath"),is(7200)).
-                body(System.getProperty("tempMaxPath"),is(289.92F)).
-                body(System.getProperty("gustPath"),is(5.7F)).
-                body(System.getProperty("countryPath"),is("PL"));
+                body(System.getProperty("namePath"),is(System.getProperty("nameAnswer"))).
+                body(System.getProperty("timezonePath"),is(Integer.parseInt(System.getProperty("timezoneAnswer")))).
+                body(System.getProperty("tempMaxPath"),is(Float.parseFloat(System.getProperty("tempMaxAnswer")))).
+                body(System.getProperty("gustPath"),is(Float.parseFloat(System.getProperty("gutsAnswer")))).
+                body(System.getProperty("cloudsPath"),is(Integer.parseInt(System.getProperty("cloudsAnswer"))));
     }
 
 

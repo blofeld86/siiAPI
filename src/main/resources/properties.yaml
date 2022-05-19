@@ -1,6 +1,6 @@
 environments:
   env_int:
-    active: true
+    active: false
     appUrl: "https://samples.openweathermap.org"
     basePath: "/data/2.5/weather"
     contentType: ContentType.JSON
@@ -14,9 +14,15 @@ environments:
     windSpeedPath: "wind.speed"
     weatherPath: "weather[0].main"
     cloudsPath: "clouds.all"
+    countryAnswer: "GB"
+    pressureAnswer: 1012
+    sunsetAnswer: 1485794875
+    windAnswer: 4.1F
+    weatherAnswer: "Drizzle"
+    cloudAnswer: 90
 
   env_test:
-    active: false
+    active: true
     appUrl: "https://v1.nocodeapi.com"
     basePath: "/blofeld/ow/auONLeOHJjNgJwCJ/byCityName"
     contentType: ContentType.JSON
@@ -30,6 +36,13 @@ environments:
     tempMaxPath: "main.temp_max"
     gustPath: "wind.gust"
     countryPath: "sys.country"
+    countryAnswer: "PL"
+    nameAnswer: "Lublin Voivodeship"
+    timezoneAnswer: 7200
+    tempMaxAnswer: 294.92F
+    gutsAnswer: 4.5F
+    cloudsAnswer: 100
+
 
 
 
